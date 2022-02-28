@@ -72,8 +72,8 @@ function Register() {
       toast.error("Passwords do not match");
     } else {
       const userData = {
-        firstname: firstName,
-        lastname: lastName,
+        first_name: firstName,
+        last_name: lastName,
         email,
         password,
         password_confirmation: passwordConfirmation,
