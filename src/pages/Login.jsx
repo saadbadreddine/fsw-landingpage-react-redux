@@ -2,7 +2,6 @@ import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import CssBaseline from "@mui/material/CssBaseline";
 import TextField from "@mui/material/TextField";
-import Link from "@mui/material/Link";
 import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
@@ -15,19 +14,6 @@ import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { login, reset } from "../features/auth/authSlice";
 import { NavLink } from "react-router-dom";
-
-function Copyright(props) {
-  return (
-    <Typography variant="body2" color="text.secondary" align="center" {...props}>
-      {"Copyright © "}
-      <Link color="inherit" href="/">
-        hustle
-      </Link>{" "}
-      {new Date().getFullYear()}
-      {"."}
-    </Typography>
-  );
-}
 
 const theme = createTheme({
   palette: {
@@ -139,7 +125,7 @@ function Login() {
                       fontSize="0.85rem"
                       style={{ textDecoration: "underline black" }}
                     >
-                      {"Don't have an account? Sign Up"}
+                      Don't have an account? Sign Up
                     </Typography>
                   </NavLink>
                 </nav>
