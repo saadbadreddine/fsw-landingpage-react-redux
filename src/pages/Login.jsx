@@ -115,7 +115,7 @@ function Login() {
             <Button type="submit" fullWidth variant="contained" sx={{ mt: 3, mb: 2 }}>
               Sign In
             </Button>
-            <Grid container>
+            <Grid container justifyContent="flex-end">
               <Grid item>
                 <nav>
                   <NavLink to="/register" sx={{ mt: 8, mb: 4 }}>
