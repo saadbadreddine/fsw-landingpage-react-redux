@@ -14,13 +14,14 @@ import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { login, reset } from "../features/auth/authSlice";
+import { NavLink } from "react-router-dom";
 
 function Copyright(props) {
   return (
     <Typography variant="body2" color="text.secondary" align="center" {...props}>
       {"Copyright © "}
-      <Link color="inherit" href="https://mui.com/">
-        Your Website
+      <Link color="inherit" href="/">
+        hustle
       </Link>{" "}
       {new Date().getFullYear()}
       {"."}
@@ -130,14 +131,22 @@ function Login() {
             </Button>
             <Grid container>
               <Grid item>
-                <Link href="#" variant="body2">
-                  {"Don't have an account? Sign Up"}
-                </Link>
+                <nav>
+                  <NavLink to="/register" sx={{ mt: 8, mb: 4 }}>
+                    <Typography
+                      variant="body2"
+                      color="text.secondary"
+                      fontSize="0.85rem"
+                      style={{ textDecoration: "underline black" }}
+                    >
+                      {"Don't have an account? Sign Up"}
+                    </Typography>
+                  </NavLink>
+                </nav>
               </Grid>
             </Grid>
           </Box>
         </Box>
-        <Copyright sx={{ mt: 8, mb: 4 }} />
       </Container>
     </ThemeProvider>
   );

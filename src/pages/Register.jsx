@@ -14,21 +14,18 @@ import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { register, reset } from "../features/auth/authSlice";
+import { NavLink } from "react-router-dom";
 
-function Copyright(props) {
-  return (
-    <Typography variant="body2" color="text.secondary" align="center" {...props}>
-      {"Copyright © "}
-      <Link color="inherit" href="https://mui.com/">
-        Your Website
-      </Link>{" "}
-      {new Date().getFullYear()}
-      {"."}
-    </Typography>
-  );
-}
-
-const theme = createTheme();
+const theme = createTheme({
+  palette: {
+    primary: {
+      main: "#4d4f51",
+    },
+    secondary: {
+      main: "#292a2b",
+    },
+  },
+});
 
 function Register() {
   const [formData, setFormData] = useState({
@@ -171,14 +168,22 @@ function Register() {
             </Button>
             <Grid container justifyContent="flex-end">
               <Grid item>
-                <Link href="#" variant="body2">
-                  Already have an account? Sign in
-                </Link>
+                <nav>
+                  <NavLink to="/login" variant="body2">
+                    <Typography
+                      variant="body2"
+                      color="text.secondary"
+                      fontSize="0.85rem"
+                      style={{ textDecoration: "underline black" }}
+                    >
+                      Already have an account? Sign in
+                    </Typography>
+                  </NavLink>
+                </nav>
               </Grid>
             </Grid>
           </Box>
         </Box>
-        <Copyright sx={{ mt: 5 }} />
       </Container>
     </ThemeProvider>
   );
