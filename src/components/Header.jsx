@@ -58,13 +58,18 @@ const Header = () => {
   }, []);
 
   return (
-    <div className={classes.root}>
+    <div className={classes.root} id="header">
       <AppBar style={{ background: "transparent", boxShadow: "none" }} elevation={0}>
         <Toolbar className={classes.appbarWrapper}>
-          <Button variant="text" sx={{ mr: "10px" }} onClick={navtoLogin}>
+          <Button
+            variant="text"
+            sx={{ mr: "10px" }}
+            onClick={navtoLogin}
+            style={{ fontSize: "0.9rem" }}
+          >
             Sign in
           </Button>
-          <Button variant="text" onClick={navtoRegister}>
+          <Button variant="text" onClick={navtoRegister} style={{ fontSize: "0.9rem" }}>
             Sign up
           </Button>
         </Toolbar>
