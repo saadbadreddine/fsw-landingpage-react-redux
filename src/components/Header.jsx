@@ -1,5 +1,5 @@
 import { makeStyles } from "@mui/styles";
-import { AppBar, Collapse, IconButton } from "@mui/material";
+import { AppBar, IconButton } from "@mui/material";
 import { Button } from "@mui/material";
 import { Toolbar } from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
@@ -37,6 +37,11 @@ const useStyles = makeStyles((theme) => ({
 const Header = () => {
   const classes = useStyles();
   const navigate = useNavigate();
+  const isAuth = JSON.parse(localStorage.getItem("user"));
+
+  if (isAuth) {
+    navigate("/dashboard");
+  }
 
   const navtoLogin = () => {
     navigate("/login");
