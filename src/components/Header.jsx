@@ -1,15 +1,16 @@
 import { makeStyles } from "@mui/styles";
-import { AppBar } from "@mui/material";
+import { AppBar, Collapse, IconButton } from "@mui/material";
 import { Button } from "@mui/material";
 import { Toolbar } from "@mui/material";
-import { borderColor } from "@mui/system";
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import { useEffect, useState } from "react";
+import Zoom from "@mui/material/Zoom";
 
 const useStyles = makeStyles((theme) => ({
   root: {
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    textAlign: "center",
     height: "100vh",
   },
   appbarWrapper: {
@@ -18,13 +19,28 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: "end",
   },
   hustleLogo: {
-    width: "30%",
+    width: "60%",
+    color: "#ccc",
+  },
+  container: {
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  navDown: {
     color: "#ccc",
   },
 }));
 
 const Header = () => {
   const classes = useStyles();
+
+  const [checked, setChecked] = useState(false);
+
+  useEffect(() => {
+    setChecked(true);
+  }, []);
 
   return (
     <div className={classes.root}>
@@ -36,8 +52,14 @@ const Header = () => {
           <Button variant="text">Sign up</Button>
         </Toolbar>
       </AppBar>
-
-      <img src={"/assets/hustle.svg"} className={classes.hustleLogo}></img>
+      <Zoom in={checked} style={{ transitionDelay: checked ? "1000ms" : "0ms" }}>
+        <div className={classes.container}>
+          <img src={"/assets/hustle.svg"} className={classes.hustleLogo}></img>
+          <IconButton>
+            <ExpandMoreIcon className={classes.navDown} style={{ fontSize: "3rem" }} />
+          </IconButton>
+        </div>
+      </Zoom>
     </div>
   );
 };
