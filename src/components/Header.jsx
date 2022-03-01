@@ -5,6 +5,7 @@ import { Toolbar } from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { useEffect, useState } from "react";
 import Zoom from "@mui/material/Zoom";
+import { useNavigate } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -35,6 +36,15 @@ const useStyles = makeStyles((theme) => ({
 
 const Header = () => {
   const classes = useStyles();
+  const navigate = useNavigate();
+
+  const navtoLogin = () => {
+    navigate("/login");
+  };
+
+  const navtoRegister = () => {
+    navigate("/register");
+  };
 
   const [checked, setChecked] = useState(false);
 
@@ -46,13 +56,15 @@ const Header = () => {
     <div className={classes.root}>
       <AppBar style={{ background: "transparent", boxShadow: "none" }} elevation={0}>
         <Toolbar className={classes.appbarWrapper}>
-          <Button variant="text" sx={{ mr: "10px" }}>
+          <Button variant="text" sx={{ mr: "10px" }} onClick={navtoLogin}>
             Sign in
           </Button>
-          <Button variant="text">Sign up</Button>
+          <Button variant="text" onClick={navtoRegister}>
+            Sign up
+          </Button>
         </Toolbar>
       </AppBar>
-      <Zoom in={checked} style={{ transitionDelay: checked ? "1000ms" : "0ms" }}>
+      <Zoom in={checked} style={{ transitionDelay: checked ? "700ms" : "0ms" }}>
         <div className={classes.container}>
           <img src={"/assets/hustle.svg"} className={classes.hustleLogo}></img>
           <IconButton>
