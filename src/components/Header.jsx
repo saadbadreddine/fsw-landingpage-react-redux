@@ -75,7 +75,7 @@ const Header = () => {
           </Button>
         </Toolbar>
       </AppBar>
-      <Zoom in={checked} style={{ transitionDelay: checked ? "700ms" : "0ms" }}>
+      <Zoom in={checked} style={{ transitionDelay: checked ? "800ms" : "0ms" }}>
         <div className={classes.container}>
           <img src={"/assets/hustle.svg"} className={classes.hustleLogo}></img>
           <Scroll to="carousel" smooth={true}>

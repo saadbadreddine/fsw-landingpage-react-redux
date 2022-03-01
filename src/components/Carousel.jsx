@@ -15,7 +15,7 @@ const useStyles = makeStyles((theme) => ({
     marginTop: "100px",
   },
   carouselImage: {
-    width: "50%",
+    width: "40%",
     display: "block",
     marginLeft: "auto",
     marginRight: "auto",

@@ -12,7 +12,7 @@ const useStyles = makeStyles((theme) => ({
     backgroundSize: "cover",
   },
   carousel: {
-    width: "70%",
+    width: "90%",
     margin: "auto",
     height: "90vh",
   },
