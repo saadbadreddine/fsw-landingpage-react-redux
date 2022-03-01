@@ -5,13 +5,12 @@ import Landing from "./pages/Landing";
 import Dashboard from "./pages/Dashboard";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
-import NavBar from "./components/NavBar";
+import "./App.css";
 
 function App() {
   return (
-    <>
+    <div>
       <Router>
-        <NavBar />
         <Routes>
           <Route path="/" element={<Landing />} />
           <Route path="/dashboard" element={<Dashboard />} />
@@ -20,7 +19,7 @@ function App() {
         </Routes>
       </Router>
       <ToastContainer />
-    </>
+    </div>
   );
 }
 
