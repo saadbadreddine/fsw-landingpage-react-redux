@@ -11,6 +11,9 @@ import "swiper/css/scrollbar";
 import { makeStyles } from "@mui/styles";
 
 const useStyles = makeStyles((theme) => ({
+  root: {
+    marginTop: "100px",
+  },
   carouselImage: {
     width: "50%",
     display: "block",
@@ -21,8 +24,11 @@ const useStyles = makeStyles((theme) => ({
 }));
 export default () => {
   const classes = useStyles();
+
   return (
     <Swiper
+      id="carousel"
+      className={classes.root}
       // install Swiper modules
       modules={[Navigation, Pagination, Scrollbar, A11y]}
       spaceBetween={50}
