@@ -5,7 +5,7 @@ import Header from "../components/Header";
 import Carousel from "../components/Carousel";
 import AboutUs from "../components/AboutUs";
 import Footer from "../components/Footer";
-
+import { Box } from "@mui/system";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -36,16 +36,18 @@ function Landing() {
   const classes = useStyles();
 
   return (
-    <div className={classes.root}>
-      <CssBaseline />
-      <Header />
-      <div className={classes.carousel}>
-        <Carousel />
+    <Box sx={{ flexDirection: "column" }}>
+      <div className={classes.root}>
+        <CssBaseline />
+        <Header />
+        <div className={classes.carousel}>
+          <Carousel />
+        </div>
+        <div className={classes.about}>
+          <AboutUs />
+        </div>
       </div>
-      <div className={classes.about}>
-        <AboutUs />
-      </div>
-    </div>
+    </Box>
   );
 }
 

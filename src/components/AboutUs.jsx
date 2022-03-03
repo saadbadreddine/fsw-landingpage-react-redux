@@ -3,15 +3,19 @@ import { makeStyles } from "@mui/styles";
 
 const useStyles = makeStyles((theme) => ({
   root: {
+    padding: "10vh 0 10vh 0",
+
+    marginTop: "20vh",
     color: "white",
     textAlign: "center",
   },
   aboutUs: {
     fontSize: "3rem",
-    fontWeight: "500",
+    fontWeight: "400",
   },
   about: {
-    fontSize: "1.3rem",
+    margin: "5vh 25vh 0 25vh",
+    fontSize: "1.15rem",
     fontWeight: "300",
   },
 }));
