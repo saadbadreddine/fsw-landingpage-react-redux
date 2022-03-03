@@ -4,6 +4,7 @@ import GitHubIcon from "@mui/icons-material/GitHub";
 import ContactMailIcon from "@mui/icons-material/ContactMail";
 import Typography from "@mui/material/Typography";
 
+
 function Footer() {
   return (
     <div style={{ backgroundColor: "#151515", opacity: "98%" }}>
