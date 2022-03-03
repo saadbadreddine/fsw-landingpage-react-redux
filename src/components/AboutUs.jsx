@@ -1,11 +1,11 @@
 import { Container, Grid } from "@mui/material";
 import { makeStyles } from "@mui/styles";
 
+
 const useStyles = makeStyles((theme) => ({
   root: {
     padding: "10vh 0 10vh 0",
-
-    marginTop: "20vh",
+    marginTop: "15vh",
     color: "white",
     textAlign: "center",
   },
@@ -14,7 +14,7 @@ const useStyles = makeStyles((theme) => ({
     fontWeight: "400",
   },
   about: {
-    margin: "5vh 25vh 0 25vh",
+    margin: "5vh 15vh 0 15vh",
     fontSize: "1.15rem",
     fontWeight: "300",
   },

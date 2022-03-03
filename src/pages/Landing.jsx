@@ -47,6 +47,7 @@ function Landing() {
           <AboutUs />
         </div>
       </div>
+      <Footer class="footer" />
     </Box>
   );
 }
