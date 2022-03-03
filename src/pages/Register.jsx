@@ -13,7 +13,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { register, reset } from "../features/auth/authSlice";
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const theme = createTheme({
   palette: {
@@ -35,12 +35,15 @@ function Register() {
     passwordConfirmation: "",
   });
 
-  const { firstName, lastName, email, password, passwordConfirmation } = formData;
+  const { firstName, lastName, email, password, passwordConfirmation } =
+    formData;
 
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  const { user, isLoading, isError, isSuccess, message } = useSelector((state) => state.auth);
+  const { user, isLoading, isError, isSuccess, message } = useSelector(
+    (state) => state.auth
+  );
 
   useEffect(() => {
     if (isError) {
@@ -68,7 +71,7 @@ function Register() {
       toast.error("Passwords do not match");
     } else {
       const userData = {
-        name: firstName + "+" + lastName,
+        name: firstName + "_" + lastName,
         email,
         password,
         password_confirmation: passwordConfirmation,
@@ -162,23 +165,26 @@ function Register() {
                 />
               </Grid>
             </Grid>
-            <Button type="submit" fullWidth variant="contained" sx={{ mt: 3, mb: 2 }}>
+            <Button
+              type="submit"
+              fullWidth
+              variant="contained"
+              sx={{ mt: 3, mb: 2 }}
+            >
               Sign Up
             </Button>
             <Grid container justifyContent="flex-end">
               <Grid item>
-                <nav>
-                  <NavLink to="/login" variant="body2">
-                    <Typography
-                      variant="body2"
-                      color="text.secondary"
-                      fontSize="0.85rem"
-                      style={{ textDecoration: "underline black" }}
-                    >
-                      Already have an account? Sign in
-                    </Typography>
-                  </NavLink>
-                </nav>
+                <Link to="/login" variant="body2">
+                  <Typography
+                    variant="body2"
+                    color="text.secondary"
+                    fontSize="0.85rem"
+                    style={{ textDecoration: "underline black" }}
+                  >
+                    Already have an account? Sign in
+                  </Typography>
+                </Link>
               </Grid>
             </Grid>
           </Box>

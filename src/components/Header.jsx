@@ -7,6 +7,18 @@ import { useEffect, useState } from "react";
 import Zoom from "@mui/material/Zoom";
 import { useNavigate } from "react-router-dom";
 import { Link as Scroll } from "react-scroll";
+import { createTheme, ThemeProvider } from "@mui/material/styles";
+
+const theme = createTheme({
+  palette: {
+    primary: {
+      main: "#171717",
+    },
+    secondary: {
+      main: "#292a2b",
+    },
+  },
+});
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -59,33 +71,58 @@ const Header = () => {
   }, []);
 
   return (
-    <div className={classes.root} id="header">
-      <AppBar style={{ background: "transparent", boxShadow: "none" }} elevation={0}>
-        <Toolbar className={classes.appbarWrapper}>
-          <Button
-            variant="text"
-            sx={{ mr: "10px" }}
-            onClick={navtoLogin}
-            style={{ fontSize: "0.9rem" }}
-          >
-            Sign in
-          </Button>
-          <Button variant="text" onClick={navtoRegister} style={{ fontSize: "0.9rem" }}>
-            Sign up
-          </Button>
-        </Toolbar>
-      </AppBar>
-      <Zoom in={checked} style={{ transitionDelay: checked ? "800ms" : "0ms" }}>
-        <div className={classes.container}>
-          <img src={"/assets/hustle.svg"} className={classes.hustleLogo}></img>
-          <Scroll to="carousel" smooth={true}>
-            <IconButton>
-              <ExpandMoreIcon className={classes.navDown} style={{ fontSize: "3rem" }} />
-            </IconButton>
-          </Scroll>
-        </div>
-      </Zoom>
-    </div>
+    <ThemeProvider theme={theme}>
+      <div className={classes.root} id="header">
+        <AppBar className="appBar" elevation={0} style={{ opacity: "70%" }}>
+          <Toolbar className={classes.appbarWrapper}>
+            <Button
+              variant="text"
+              sx={{ mr: "10px" }}
+              onClick={navtoLogin}
+              style={{
+                fontSize: "1.1rem",
+                fontWeight: "400",
+                textTransform: "none",
+                color: "white",
+              }}
+            >
+              Login
+            </Button>
+            <Button
+              variant="text"
+              onClick={navtoRegister}
+              style={{
+                fontSize: "1.1rem",
+                fontWeight: "400",
+                textTransform: "none",
+                color: "white",
+              }}
+            >
+              Register
+            </Button>
+          </Toolbar>
+        </AppBar>
+        <Zoom
+          in={checked}
+          style={{ transitionDelay: checked ? "800ms" : "0ms" }}
+        >
+          <div className={classes.container}>
+            <img
+              src={"/assets/hustle.svg"}
+              className={classes.hustleLogo}
+            ></img>
+            <Scroll to="carousel" smooth={true}>
+              <IconButton>
+                <ExpandMoreIcon
+                  className={classes.navDown}
+                  style={{ fontSize: "3rem" }}
+                />
+              </IconButton>
+            </Scroll>
+          </div>
+        </Zoom>
+      </div>
+    </ThemeProvider>
   );
 };
 

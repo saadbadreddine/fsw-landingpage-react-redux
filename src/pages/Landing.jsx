@@ -3,6 +3,9 @@ import { makeStyles } from "@mui/styles";
 import { CssBaseline } from "@mui/material";
 import Header from "../components/Header";
 import Carousel from "../components/Carousel";
+import AboutUs from "../components/AboutUs";
+import Footer from "../components/Footer";
+
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -14,7 +17,18 @@ const useStyles = makeStyles((theme) => ({
   carousel: {
     width: "90%",
     margin: "auto",
-    height: "90vh",
+    height: "85vh",
+  },
+  about: {
+    color: "white",
+    backgroundImage: "none !important",
+    backgroundColor: "#171717 !important",
+    opacity: "90%",
+  },
+  footer: {
+    color: "white",
+    backgroundImage: "none !important",
+    backgroundColor: "#171717 !important",
   },
 }));
 
@@ -27,6 +41,9 @@ function Landing() {
       <Header />
       <div className={classes.carousel}>
         <Carousel />
+      </div>
+      <div className={classes.about}>
+        <AboutUs />
       </div>
     </div>
   );

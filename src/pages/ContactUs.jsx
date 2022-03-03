@@ -2,9 +2,8 @@ import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import CssBaseline from "@mui/material/CssBaseline";
 import TextField from "@mui/material/TextField";
-import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
-import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
+import ContactMailIcon from "@mui/icons-material/ContactMail";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
@@ -12,8 +11,8 @@ import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-import { login, reset } from "../features/auth/authSlice";
-import { Link } from "react-router-dom";
+import { sendMsg, reset } from "../features/auth/msgSlice";
+import { makeStyles } from "@mui/styles";
 
 const theme = createTheme({
   palette: {
@@ -26,19 +25,25 @@ const theme = createTheme({
   },
 });
 
-function Login() {
+const useStyles = makeStyles((theme) => ({
+  message: {},
+}));
+
+function ContactUs() {
+  const classes = useStyles();
   const [formData, setFormData] = useState({
     email: "",
-    password: "",
+    subject: "",
+    msg: "",
   });
 
-  const { email, password } = formData;
+  const { email, subject, msg } = formData;
 
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
   const { user, isLoading, isError, isSuccess, message } = useSelector(
-    (state) => state.auth
+    (state) => state.msg
   );
 
   useEffect(() => {
@@ -46,8 +51,8 @@ function Login() {
       toast.error(message);
     }
 
-    if (isSuccess || user) {
-      navigate("/dashboard");
+    if (isSuccess) {
+      toast.success("Success");
     }
 
     dispatch(reset());
@@ -65,10 +70,11 @@ function Login() {
 
     const userData = {
       email: email,
-      password: password,
+      subject: subject,
+      message: msg,
     };
 
-    dispatch(login(userData));
+    dispatch(sendMsg(userData));
   };
 
   return (
@@ -77,17 +83,17 @@ function Login() {
         <CssBaseline />
         <Box
           sx={{
-            marginTop: 15,
+            marginTop: 5,
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
           }}
         >
           <Avatar sx={{ m: 1, bgcolor: "secondary.main" }}>
-            <LockOutlinedIcon />
+            <ContactMailIcon />
           </Avatar>
           <Typography component="h1" variant="h5">
-            Sign in
+            Contact us
           </Typography>
           <Box component="form" onSubmit={onSubmit} noValidate sx={{ mt: 1 }}>
             <TextField
@@ -106,13 +112,23 @@ function Login() {
               margin="normal"
               required
               fullWidth
-              name="password"
-              label="Password"
-              type="password"
-              id="password"
-              autoComplete="current-password"
+              name="subject"
+              label="Subject"
+              id="subject"
               onChange={onChange}
-              value={password}
+              value={subject}
+            />
+            <TextField
+              margin="normal"
+              required
+              fullWidth
+              name="msg"
+              label="Message"
+              id="msg"
+              onChange={onChange}
+              value={msg}
+              multiline
+              rows={6}
             />
             <Button
               type="submit"
@@ -120,22 +136,8 @@ function Login() {
               variant="contained"
               sx={{ mt: 3, mb: 2 }}
             >
-              Sign In
+              Send
             </Button>
-            <Grid container justifyContent="flex-end">
-              <Grid item>
-                <Link to="/register" sx={{ mt: 8, mb: 4 }}>
-                  <Typography
-                    variant="body2"
-                    color="text.secondary"
-                    fontSize="0.85rem"
-                    style={{ textDecoration: "underline black" }}
-                  >
-                    Don't have an account? Sign Up
-                  </Typography>
-                </Link>
-              </Grid>
-            </Grid>
           </Box>
         </Box>
       </Container>
@@ -143,4 +145,4 @@ function Login() {
   );
 }
 
-export default Login;
+export default ContactUs;

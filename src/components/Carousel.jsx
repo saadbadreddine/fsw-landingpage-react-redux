@@ -11,15 +11,14 @@ import "swiper/css/scrollbar";
 import { makeStyles } from "@mui/styles";
 
 const useStyles = makeStyles((theme) => ({
-  root: {
-    marginTop: "100px",
-  },
+  root: {},
   carouselImage: {
-    width: "40%",
+    minWidth: "45%",
+    maxWidth: "75%",
     display: "block",
     marginLeft: "auto",
     marginRight: "auto",
-    marginBottom: "30px",
+    marginBottom: "20px",
   },
 }));
 export default () => {
@@ -31,13 +30,12 @@ export default () => {
       className={classes.root}
       // install Swiper modules
       modules={[Navigation, Pagination, Scrollbar, A11y]}
-      spaceBetween={50}
       slidesPerView={1}
       navigation
       pagination={{ clickable: true }}
       scrollbar={{ draggable: true }}
-      onSwiper={(swiper) => console.log(swiper)}
-      onSlideChange={() => console.log("slide change")}
+      //onSwiper={(swiper) => console.log(swiper)}
+      //onSlideChange={() => console.log("slide change")}
     >
       <SwiperSlide>
         <img src={"/assets/morty.jpg"} className={classes.carouselImage}></img>
