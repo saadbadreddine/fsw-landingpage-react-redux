@@ -41,12 +41,14 @@ function Login() {
     (state) => state.auth
   );
 
+  let user_token = localStorage.getItem("user");
+
   useEffect(() => {
     if (isError) {
       toast.error(message);
     }
 
-    if (isSuccess || user) {
+    if (isSuccess || user_token) {
       navigate("/dashboard");
     }
 
@@ -91,6 +93,7 @@ function Login() {
           </Typography>
           <Box component="form" onSubmit={onSubmit} noValidate sx={{ mt: 1 }}>
             <TextField
+              variant="filled"
               margin="normal"
               required
               fullWidth
@@ -103,6 +106,7 @@ function Login() {
               value={email}
             />
             <TextField
+              variant="filled"
               margin="normal"
               required
               fullWidth

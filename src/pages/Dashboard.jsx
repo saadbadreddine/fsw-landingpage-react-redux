@@ -87,7 +87,7 @@ function Dashboard() {
     }
 
     if (isSuccess) {
-      //
+      toast.success("Success");
     }
 
     dispatch(reset());
@@ -107,7 +107,7 @@ function Dashboard() {
       toast.error("Passwords do not match");
     } else {
       let userData = {};
-      if (password == "") {
+      if (password === "") {
         userData = {
           name: firstName + "_" + lastName,
           email,
@@ -177,6 +177,7 @@ function Dashboard() {
             <Grid container spacing={2}>
               <Grid item xs={12} sm={6}>
                 <TextField
+                  variant="filled"
                   autoComplete="given-name"
                   name="firstName"
                   required
@@ -190,6 +191,7 @@ function Dashboard() {
               </Grid>
               <Grid item xs={12} sm={6}>
                 <TextField
+                  variant="filled"
                   required
                   fullWidth
                   id="lastName"
@@ -202,6 +204,7 @@ function Dashboard() {
               </Grid>
               <Grid item xs={12}>
                 <TextField
+                  variant="filled"
                   required
                   fullWidth
                   id="email"
@@ -214,6 +217,7 @@ function Dashboard() {
               </Grid>
               <Grid item xs={12}>
                 <TextField
+                  variant="filled"
                   required
                   fullWidth
                   name="password"
@@ -227,6 +231,7 @@ function Dashboard() {
               </Grid>
               <Grid item xs={12}>
                 <TextField
+                  variant="filled"
                   required
                   fullWidth
                   name="passwordConfirmation"

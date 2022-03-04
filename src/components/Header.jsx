@@ -68,6 +68,7 @@ const Header = () => {
 
   useEffect(() => {
     setChecked(true);
+    console.log("animated");
   }, []);
 
   return (

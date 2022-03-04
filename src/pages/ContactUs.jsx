@@ -97,6 +97,7 @@ function ContactUs() {
           </Typography>
           <Box component="form" onSubmit={onSubmit} noValidate sx={{ mt: 1 }}>
             <TextField
+              variant="filled"
               margin="normal"
               required
               fullWidth
@@ -109,6 +110,7 @@ function ContactUs() {
               value={email}
             />
             <TextField
+              variant="filled"
               margin="normal"
               required
               fullWidth
@@ -119,6 +121,7 @@ function ContactUs() {
               value={subject}
             />
             <TextField
+              variant="filled"
               margin="normal"
               required
               fullWidth

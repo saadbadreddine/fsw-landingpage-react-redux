@@ -50,8 +50,9 @@ function Register() {
       toast.error(message);
     }
 
-    if (isSuccess || user) {
-      navigate("/");
+    if (isSuccess) {
+      toast.success("User Successfully Registered");
+      //navigate("/login");
     }
 
     dispatch(reset());
@@ -72,8 +73,8 @@ function Register() {
     } else {
       const userData = {
         name: firstName + "_" + lastName,
-        email,
-        password,
+        email: email,
+        password: password,
         password_confirmation: passwordConfirmation,
       };
 
@@ -103,6 +104,7 @@ function Register() {
             <Grid container spacing={2}>
               <Grid item xs={12} sm={6}>
                 <TextField
+                  variant="filled"
                   autoComplete="given-name"
                   name="firstName"
                   required
@@ -116,6 +118,7 @@ function Register() {
               </Grid>
               <Grid item xs={12} sm={6}>
                 <TextField
+                  variant="filled"
                   required
                   fullWidth
                   id="lastName"
@@ -128,6 +131,7 @@ function Register() {
               </Grid>
               <Grid item xs={12}>
                 <TextField
+                  variant="filled"
                   required
                   fullWidth
                   id="email"
@@ -140,6 +144,7 @@ function Register() {
               </Grid>
               <Grid item xs={12}>
                 <TextField
+                  variant="filled"
                   required
                   fullWidth
                   name="password"
@@ -153,6 +158,7 @@ function Register() {
               </Grid>
               <Grid item xs={12}>
                 <TextField
+                  variant="filled"
                   required
                   fullWidth
                   name="passwordConfirmation"
