@@ -8,18 +8,22 @@ const initialState = {
   message: "",
 };
 
-// Login user
-export const sendMsg = createAsyncThunk("/contact", async (user, thunkAPI) => {
-  try {
-    return await msgService.sendMsg(user);
-  } catch (error) {
-    const message =
-      (error.response && error.response.data && error.response.data.message) ||
-      error.message ||
-      error.toString();
-    return thunkAPI.rejectWithValue(message);
+export const sendMsg = createAsyncThunk(
+  "/contact",
+  async (userData, thunkAPI) => {
+    try {
+      return await msgService.sendMsg(userData);
+    } catch (error) {
+      const message =
+        (error.response &&
+          error.response.data &&
+          error.response.data.message) ||
+        error.message ||
+        error.toString();
+      return thunkAPI.rejectWithValue(message);
+    }
   }
-});
+);
 
 export const msgSlice = createSlice({
   name: "msg",
@@ -40,13 +44,11 @@ export const msgSlice = createSlice({
       .addCase(sendMsg.fulfilled, (state, action) => {
         state.isLoading = false;
         state.isSuccess = true;
-        state.user = action.payload;
       })
       .addCase(sendMsg.rejected, (state, action) => {
         state.isLoading = false;
         state.isError = true;
         state.message = action.payload;
-        state.user = null;
       });
   },
 });
