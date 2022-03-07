@@ -11,7 +11,7 @@ import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-import { sendMsg, reset } from "../features/auth/msgSlice";
+import { sendMsg, reset } from "../features/msg/msgSlice";
 import { makeStyles } from "@mui/styles";
 
 const theme = createTheme({
